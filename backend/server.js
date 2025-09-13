@@ -1,8 +1,14 @@
 const express = require("express");
-const app = express()
+const app = express();
+const router = require("./routes");
+const cors = require("cors");
+
+app.use(cors());
+app.use(express.json());
+app.use("/api", router);
 
 app.get("/", (req, res) =>{
-    res.send("Hello world")
+    res.send("Build It Up!")
 })
 
 app.listen(3000, () => {
